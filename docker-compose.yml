@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  mailhog: 
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+  test:
+    image: alpine:3.7
+    depends_on:
+      - mailhog
+    command: "sh -c 'echo \"From: x@y.z\nSubject: bonjour\n\nça va bien ?\nbisou\" | sendmail -S mail aaa@zzz.eee'"
