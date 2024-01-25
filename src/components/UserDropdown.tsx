@@ -8,7 +8,6 @@ import { Loader2, LogOutIcon, User2Icon } from 'lucide-react';
 import { signOut } from "next-auth/react";
 import { useRouter } from 'next/navigation';
 
-
 interface UserDropdownProps {
     user: User | undefined,
     status: "loading" | "authenticated"
