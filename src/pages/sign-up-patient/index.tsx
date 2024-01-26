@@ -1,13 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
-import { useLottie } from "lottie-react";
+const LazyLoadedLottieComp = dynamic(() => (import('lottie-react')), {ssr: false})
 import regsiterAni from "../../../public/animation/register.json";
 import { MdLock } from "react-icons/md";
-import { CiUser } from "react-icons/ci";
 import { useForm, SubmitHandler } from "react-hook-form";
 import {
   Card,
@@ -47,23 +47,15 @@ function SignUp() {
     if (password !== confirmPassword) {
       return;
     }
-
     console.log(email, confirmPassword, password);
   };
 
-  const style = {
+  const animationStyle = {
     height: 150,
   };
 
-  const options = {
-    animationData: regsiterAni,
-    loop: false,
-  };
-
-  const { View } = useLottie(options, style);
-
   return (
-    <div className="flex h-screen w-full items-center justify-center">
+    <div className="flex h-[90vh] w-full items-center justify-center">
       <Card className="max-w-96 shadow-gray-600">
         <CardHeader>
           <CardTitle>
@@ -86,7 +78,7 @@ function SignUp() {
               className="w-40"
             />
           </Avatar> */}
-          <>{View}</>
+          <LazyLoadedLottieComp animationData={regsiterAni} loop={false} style={animationStyle} />
           {/* <CiUser className="my-4 h-32 w-32 rounded-full border-4 border-black p-2" /> */}
           <div className="flex w-full flex-col gap-1">
             <Input
