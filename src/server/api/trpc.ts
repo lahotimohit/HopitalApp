@@ -9,9 +9,12 @@
 
 import { initTRPC, TRPCError } from "@trpc/server";
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
+import jwt, { VerifyErrors } from 'jsonwebtoken';
 import { type Session } from "next-auth";
+
 import superjson from "superjson";
 import { ZodError } from "zod";
+import { env } from "~/env";
 
 import { getServerAuthSession } from "~/server/auth";
 import { db } from "~/server/db";
@@ -26,6 +29,7 @@ import { db } from "~/server/db";
 
 interface CreateContextOptions {
   session: Session | null;
+  token: string | null
 }
 
 /**
@@ -41,6 +45,7 @@ interface CreateContextOptions {
 const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
     session: opts.session,
+    token: opts.token,
     db,
   };
 };
@@ -55,10 +60,10 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
   const { req, res } = opts;
 
   // Get the session from the server using the getServerSession wrapper function
-  const session = await getServerAuthSession({ req, res });
-
+  const user_session = await getServerAuthSession({ req, res });
   return createInnerTRPCContext({
-    session,
+    session: user_session,
+    token: req.headers.authorization as string | null
   });
 };
 
@@ -126,3 +131,32 @@ export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
     },
   });
 });
+
+// export const superProtectedProcedure = t.procedure.use(({ ctx, next }) => {
+//   try {
+//     if (!ctx.token) {
+//       return new TRPCError({ code: "UNAUTHORIZED" });
+//     }
+//     const verify = jwt.verify(ctx.token, env.JWT_SECRET);
+
+//     const doctorId = await ctx.db.doctor.findUnique({
+//       where: {
+//         doctorId: +verify
+//       },
+//       select: {
+//         doctorId: true,
+//       }
+//     });
+
+//     return next({
+//       ctx: {
+//         session: {
+//           doctorId: doctorId
+//         }
+//       }
+//     })
+
+//   } catch (error) {
+    
+//   } 
+// })

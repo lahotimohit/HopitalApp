@@ -78,7 +78,7 @@ function SignUp() {
               className="w-40"
             />
           </Avatar> */}
-          <LazyLoadedLottieComp animationData={regsiterAni} loop={false} style={animationStyle} />
+          <LazyLoadedLottieComp animationData={regsiterAni} className="w-2/5" loop={false} />
           {/* <CiUser className="my-4 h-32 w-32 rounded-full border-4 border-black p-2" /> */}
           <div className="flex w-full flex-col gap-1">
             <Input
@@ -126,10 +126,11 @@ function SignUp() {
           />
           {/* todo */}
           <Button
-            className="mt-5 w-4/5 rounded-full bg-blue-600 hover:bg-blue-800"
+            className="mt-5 w-4/5 group rounded-full bg-blue-600 hover:bg-blue-800"
             onClick={handleSubmit(handleSignUp)}
           >
-            <MdLock className="mr-2 h-4 w-4" /> Create Account
+            {/* TODO: Make the lock bigger when the button is clicked */}
+            <MdLock className="mr-2 h-4 w-4 group-hover:animate-pulse group-active:scale-130 transition-transform duration-75" /> Create Account
           </Button>
           <p className="p-4 font-sans text-xs italic">
             By selecting Create account, you agree to our{" "}

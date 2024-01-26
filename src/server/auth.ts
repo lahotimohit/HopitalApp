@@ -6,9 +6,11 @@ import {
   type NextAuthOptions,
 } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 import { env } from "~/env";
 import { db } from "~/server/db";
+import { TRPCError } from "@trpc/server";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -46,12 +48,41 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   },
+  session: {
+    strategy: "database",
+  },
   adapter: PrismaAdapter(db),
   providers: [
     GoogleProvider({
       clientId: env.GOOGLE_CLIENT_ID,
       clientSecret: env.GOOGLE_CLIENT_SECRET,
     }),
+    CredentialsProvider({
+      name: "credentials",
+      credentials: {
+        email: {
+          type: "email", 
+          label: "Email"
+        },
+        password: {
+          type: "password",
+          label: "Password"
+        }
+      },
+      async authorize(credentials, req) {
+        const email = credentials?.email;
+        const user = await db.user.findFirst({
+          where: {
+            email: email
+          }
+        });
+
+        if (!user) {
+          throw new TRPCError({ code: "NOT_FOUND" });
+        }
+        return user;
+      },
+    })
     /**
      * ...add more providers here.
      *
