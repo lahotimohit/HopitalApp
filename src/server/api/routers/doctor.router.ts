@@ -65,5 +65,6 @@ export const doctorRouter = createTRPCRouter({
 
         const token = jwt.sign(`${res.doctorId}`, env.JWT_SECRET, {expiresIn: "1h"});
         return token;
-    })
+    }),
+    
 })
