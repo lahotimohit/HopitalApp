@@ -49,11 +49,23 @@ model User {
 }
 
 model Doctor {
-  doctorId       Int           @id @default(autoincrement())
-  name           String
-  password       String
-  study_details  String
-  patientHistory Appointment[]
+  doctorId          Int            @id @default(autoincrement())
+  email             String
+  emailVerified     Boolean?       @default(false)
+  verificationToken String?
+  password          String
+  mobileNo          String
+  doctorDetails     DoctorDetails? 
+  patientHistory    Appointment[]
+}
+
+model DoctorDetails {
+  id            Int      @unique
+  name          String
+  study_details String
+  image         String
+  description   String?
+  doctor        Doctor? @relation(references: [doctorId], fields: [id])
 }
 
 model Appointment {
