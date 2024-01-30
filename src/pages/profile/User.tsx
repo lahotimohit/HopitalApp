@@ -59,9 +59,10 @@ const User = (props: { user: User }) => {
     <div className="flex flex-col items-center justify-center md:grid md:grid-cols-6">
       <div className="col-span-2 flex flex-col items-center">
         <Image
-          src={props.user.image}
+          src={props.user.image as string}
           width={300}
           height={300}
+          alt="image"
           className="rounded-full"
         />
         <br />

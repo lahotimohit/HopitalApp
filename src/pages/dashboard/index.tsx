@@ -1,15 +1,17 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { Session } from "next-auth";
 import React from "react";
-import Carousel from "./carousel";
+import Carousel from "../../components/Carousel/carousel";
+import Services from "~/components/Services/Services";
 import { getServerAuthSession } from "~/server/auth";
 
 const Dashboard: React.FC<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = () => {
   return (
-    <div>
+    <div className="px-20 py-5">
       <Carousel />
+      <Services />
     </div>
   );
 };

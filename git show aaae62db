@@ -1,0 +1,96 @@
+[33mcommit 7946af60c68158d8a812a4b5fe3d05bf8e8dc3da[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Mohit Lahoti <engtechno25@gmail.com>
+Date:   Fri Jan 26 16:10:47 2024 +0530
+
+    Adding animation in profile and user registration page
+
+[33mcommit ec8f78d5bec75eb7488bf04312efcb58196ce221[m
+Merge: d525f0a 728c391
+Author: Mohit Lahoti <103593075+lahotimohit@users.noreply.github.com>
+Date:   Fri Jan 26 16:03:44 2024 +0530
+
+    Merge pull request #5 from mohit-sankhla2002/main
+    
+    fixed: animation on register page
+
+[33mcommit 728c391f7850966e85f23600919d5c942aae62db[m
+Author: Mohit Sankhla <mohitsankhlabuzz@gmail.com>
+Date:   Thu Jan 25 16:54:40 2024 +0530
+
+    fixed: animation on register page
+
+[33mcommit d525f0a06a51d056ca2d17e19edf391bff0476c4[m
+Author: Mohit Lahoti <engtechno25@gmail.com>
+Date:   Thu Jan 25 16:30:30 2024 +0530
+
+    Adding register user lottie animation
+
+[33mcommit 002c289162e956129266d2035d0a604f5baecd70[m
+Merge: 6e7f0df 9ba408e
+Author: Mohit Lahoti <103593075+lahotimohit@users.noreply.github.com>
+Date:   Thu Jan 25 16:24:20 2024 +0530
+
+    Merge pull request #4 from mohit-sankhla2002/main
+    
+    added user profile
+
+[33mcommit 9ba408e783426ab86d275325ad7d36d2d7c53056[m
+Author: Mohit Sankhla <mohitsankhlabuzz@gmail.com>
+Date:   Thu Jan 25 16:23:30 2024 +0530
+
+    added user profile
+
+[33mcommit 6e7f0df298ba3615665cca5a083d600113de925b[m
+Merge: daca58f 978846e
+Author: Mohit Lahoti <103593075+lahotimohit@users.noreply.github.com>
+Date:   Thu Jan 25 15:52:45 2024 +0530
+
+    Merge pull request #3 from mohit-sankhla2002/main
+    
+    Added auth flow as well as mailing facility
+
+[33mcommit 978846efaed32f82dd0d3568a91d9f79326da083[m
+Merge: 8e1a5f0 daca58f
+Author: Mohit Sankhla <100336545+mohit-sankhla2002@users.noreply.github.com>
+Date:   Wed Jan 24 23:39:24 2024 +0530
+
+    Merge branch 'lahotimohit:main' into main
+
+[33mcommit 8e1a5f04abe971f66d53410a5845bfc6ad06f34e[m
+Author: Mohit Sankhla <mohitsankhlabuzz@gmail.com>
+Date:   Wed Jan 24 23:37:40 2024 +0530
+
+    completed auth flow
+
+[33mcommit daca58fe3e92d5a0022ed6f075e6bb8239819daa[m
+Merge: bb9ae41 edbcd91
+Author: Mohit Lahoti <103593075+lahotimohit@users.noreply.github.com>
+Date:   Wed Jan 24 17:54:39 2024 +0530
+
+    Merge pull request #2 from mohit-sankhla2002/main
+    
+    added next secret for example env
+
+[33mcommit 7eb29b1b631bd9f0664d4f5104819d6a80c46bfa[m
+Author: Mohit Sankhla <mohitsankhlabuzz@gmail.com>
+Date:   Wed Jan 24 16:28:35 2024 +0530
+
+    added react-hook-form to signup page
+
+[33mcommit edbcd91b289cef5648f67690e000bcbb85f90ccc[m
+Author: Mohit Sankhla <mohitsankhlabuzz@gmail.com>
+Date:   Wed Jan 24 15:33:49 2024 +0530
+
+    added next secret for example env
+
+[33mcommit bb9ae4122f1cc2c65790ee160e5158405e6e86c4[m
+Author: Mohit Lahoti <engtechno25@gmail.com>
+Date:   Tue Jan 23 21:29:48 2024 +0530
+
+    Front end of signup and singin page
+
+[33mcommit 16531ce2f444c27b186f201339339fcb23437840[m
+Author: Mohit Lahoti <engtechno25@gmail.com>
+Date:   Sun Jan 21 16:37:07 2024 +0530
+
+    initial commit
