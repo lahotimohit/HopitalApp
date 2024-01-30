@@ -6,12 +6,17 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "~/components/ui/carousel";
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500"],
-});
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import {
+  EffectCoverflow,
+  Pagination,
+  Navigation,
+  Autoplay,
+} from "swiper/modules";
+import Image from "next/image";
 
 const images = [
   "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZG9jdG9yfGVufDB8fDB8fHww",
@@ -23,29 +28,41 @@ const images = [
 
 function carousel() {
   return (
-    <div className="">
-      <div className="flex flex-col items-center">
-        <Carousel className="w-full max-w-xl">
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index}>
-                <div className="p-1">
-                  <img src={images[index]} className="aspect-video w-[600px]" />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </div>
-      <div className="mt-7">
-        <span
-          className={`flex p-5 ${montserrat.className} text-3xl font-semibold text-red-600`}
-        >
-          Services We Offer
-        </span>
-      </div>
+    <div className="px-64">
+      <Swiper
+        effect={"coverflow"}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 20,
+          stretch: 0,
+          depth: 200,
+          slideShadows: false,
+        }}
+        pagination={{
+          enabled: true,
+          clickable: true,
+        }}
+        loop={true}
+        autoplay={{
+          enabled: true,
+          delay: 2000,
+        }}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+        className="mySwiper"
+      >
+        {images.map((image, index) => {
+          return (
+            <SwiperSlide className="aspect-video w-36">
+              <Image alt="lskdjf" src={image} fill className=" " />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
     </div>
   );
 }

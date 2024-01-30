@@ -81,10 +81,10 @@ function signupPatient() {
             id="userpass"
             type="password"
             className="mx-auto mt-3 p-5"
-            placeholder="Password"
+            placeholder="Phone Number"
             {...register("mobile", {
               required: {
-                message: "Password is Required",
+                message: "Phone Number is Required",
                 value: true,
               },
             })}

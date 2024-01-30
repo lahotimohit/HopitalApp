@@ -1,7 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { User } from "next-auth";
 import React, { FC } from "react";
-import UserDetail from "./User";
+import UserDetail from "../../components/UserProfile/User";
 import { getServerAuthSession } from "~/server/auth";
 
 const Profile: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({

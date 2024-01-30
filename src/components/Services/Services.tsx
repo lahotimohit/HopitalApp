@@ -60,7 +60,7 @@ const services = [
 
 function Services() {
   return (
-    <div className="grid-cols-3 gap-3 md:grid">
+    <div className="mt-2 grid-cols-3 gap-3 md:grid">
       {services.map((service) => {
         return (
           <ServiceCard

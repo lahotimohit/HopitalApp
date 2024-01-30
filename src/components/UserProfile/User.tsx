@@ -82,7 +82,7 @@ const User = (props: { user: User }) => {
           <span>{View1}</span>
         </div>
 
-        <ScrollArea className="w-4/5 whitespace-nowrap rounded-md border p-3 hover:bg-gray-100">
+        <ScrollArea className="w-4/5 whitespace-nowrap rounded-md border bg-white p-3 hover:bg-gray-100">
           <div className="flex w-max space-x-4 p-4">
             {works.map((artwork) => (
               <figure key={artwork.artist} className="shrink-0">
@@ -109,7 +109,7 @@ const User = (props: { user: User }) => {
         <div className="flex items-center gap-2 p-5 text-2xl font-semibold">
           Your Previous Diagnosis <span>{View2}</span>
         </div>
-        <ScrollArea className="w-4/5 whitespace-nowrap rounded-md border p-3 hover:bg-gray-100">
+        <ScrollArea className="w-4/5 whitespace-nowrap rounded-md border bg-white p-3 hover:bg-gray-100">
           <div className="flex w-max space-x-4 p-4">
             {works.map((artwork) => (
               <figure key={artwork.artist} className="shrink-0">

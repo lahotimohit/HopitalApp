@@ -15,7 +15,7 @@ const Navbar = () => {
     );
   }
   return (
-    <section className="mx-auto mt-4 flex h-[10%] w-[95vw] items-center justify-between rounded-3xl bg-red-600 px-20 py-2 shadow-muted-foreground">
+    <section className="mx-auto mt-4 flex h-[10%] w-[95vw] items-center justify-between rounded-2xl bg-gradient-to-tr from-red-400 to-red-700 px-20 py-2 shadow-muted-foreground">
       <CiHospital1 className="h-8 w-8" />
       <UserDropdown status={status} user={session?.user} />
     </section>
